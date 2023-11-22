@@ -13,6 +13,7 @@ var total_solved = 0
 var tries_left = 3
 
 func _ready():
+	$AnimationPlayer.play("timer") #Later possibly add an option to turn ff the time limit and the 3 tries
 	$buttonArea.visible = false
 	$"/root/Global".game_state = 0
 	$"/root/Global".solved = []
