@@ -1,0 +1,182 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://main_menu.gd" type="Script" id=1]
+[ext_resource path="res://arial.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://logo.png" type="Texture" id=3]
+[ext_resource path="res://pixel(original).png" type="Texture" id=4]
+
+[sub_resource type="DynamicFont" id=10]
+size = 72
+outline_size = 4
+outline_color = Color( 0.117647, 0.117647, 0.380392, 1 )
+extra_spacing_char = 1
+font_data = ExtResource( 2 )
+
+[sub_resource type="Theme" id=11]
+default_font = SubResource( 10 )
+
+[sub_resource type="DynamicFont" id=12]
+size = 24
+font_data = ExtResource( 2 )
+
+[sub_resource type="Theme" id=13]
+default_font = SubResource( 12 )
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="main" type="Node2D" parent="."]
+
+[node name="title" type="Label" parent="main"]
+anchor_bottom = 1.0
+margin_left = 185.0
+margin_top = 29.0
+margin_right = 838.0
+margin_bottom = 130.0
+theme = SubResource( 11 )
+custom_colors/font_color = Color( 0.117647, 0.117647, 0.380392, 1 )
+text = "ONLY CONNECT"
+align = 1
+valign = 1
+
+[node name="Logo" type="Sprite" parent="main"]
+position = Vector2( 512, 216 )
+scale = Vector2( 0.75, 0.75 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 21, 23, 211, 196 )
+
+[node name="play" type="Sprite" parent="main"]
+modulate = Color( 0.627451, 0.627451, 1, 1 )
+position = Vector2( 236, 464 )
+texture = ExtResource( 4 )
+
+[node name="Label" type="Label" parent="main/play"]
+anchor_bottom = 1.0
+margin_left = -90.0
+margin_top = -53.0
+margin_right = 90.0
+margin_bottom = -53.0
+theme = SubResource( 13 )
+custom_colors/font_color = Color( 0.117647, 0.117647, 0.380392, 1 )
+text = "PLAY"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="custom" type="Sprite" parent="main"]
+modulate = Color( 0.627451, 0.627451, 1, 1 )
+position = Vector2( 512, 464 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_editor_description_": "This button will, once the menu is implemented, allow the player to create their own walls with their own connections to quiz friends and family. "
+}
+
+[node name="Label" type="Label" parent="main/custom"]
+anchor_bottom = 1.0
+margin_left = -90.0
+margin_top = -53.0
+margin_right = 90.0
+margin_bottom = -53.0
+theme = SubResource( 13 )
+custom_colors/font_color = Color( 0.117647, 0.117647, 0.380392, 1 )
+text = "[not functional]"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="quit" type="Sprite" parent="main"]
+modulate = Color( 0.627451, 0.627451, 1, 1 )
+position = Vector2( 788, 464 )
+texture = ExtResource( 4 )
+
+[node name="Label" type="Label" parent="main/quit"]
+anchor_bottom = 1.0
+margin_left = -90.0
+margin_top = -53.0
+margin_right = 90.0
+margin_bottom = -53.0
+theme = SubResource( 13 )
+custom_colors/font_color = Color( 0.117647, 0.117647, 0.380392, 1 )
+text = "QUIT"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="music_notes" type="Label" parent="main"]
+anchor_bottom = 1.0
+margin_left = 15.0002
+margin_top = 146.0
+margin_right = 517.0
+margin_bottom = 329.0
+rect_scale = Vector2( 0.8, 0.8 )
+theme = SubResource( 13 )
+custom_colors/font_color = Color( 0.117647, 0.117647, 0.380392, 1 )
+text = "MUSIC NOTES: When I had tested the audio,
+I had used a copyrighted piece that I enjoyed. 
+This has been fixed for the GitHub release
+and the wall now plays a piece called
+ \"Someone Else\" by \"Waking Dreams\" which is 
+copyright free and a good piece of ambient."
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="editor_notes" type="Label" parent="main"]
+anchor_bottom = 1.0
+margin_left = 632.0
+margin_top = 169.0
+margin_right = 1091.0
+margin_bottom = 321.0
+rect_scale = Vector2( 0.8, 0.8 )
+theme = SubResource( 13 )
+custom_colors/font_color = Color( 0.117647, 0.117647, 0.380392, 1 )
+text = "EDITOR NOTES: The play button should 
+not just start the game, it should redirect to 
+a menu where they can select what wall 
+they want to play (wall's should be named
+with words instead of the hieroglyphs)"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="hovering" type="Label" parent="main"]
+visible = false
+margin_left = 704.0
+margin_top = 317.0
+margin_right = 744.0
+margin_bottom = 331.0
+rect_scale = Vector2( 2, 2 )
+__meta__ = {
+"_editor_description_": "This node tells the player what button their mouse is hovering over and exists for simple debugging purposes."
+}
+
+[node name="play" type="Node2D" parent="."]
+visible = false
+
+[node name="rules" type="Label" parent="play"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 1015.0
+margin_bottom = 222.0
+theme = SubResource( 13 )
+text = "Game rules:
+
+You will be presented with a 4x4 grid of words. There are 4 connections that connect 4 of the 
+words each. Your aim is to find all of them. 
+
+You have infinite guesses until you've found 2 of them, then you only have 3 guesses left. Using
+all 3 guesses without getting any of the right will result in the wall being frozen and the game
+ending. 
+
+You have 2 and a half minutes to solve the wall, once you press space or the joypad's A button.
+
+Press backspace if you wish to return to the main menu at any point."
